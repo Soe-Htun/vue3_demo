@@ -36,8 +36,29 @@
             >
                Vuex Demo
             </li>
+           <!-- <li @click="active(7)"
+               :style="{ backgroundColor: id === 7 ? '#409eff' : '' }"
+            >
+               Timer
+            </li> -->
+            <li @click="active(8)"
+               :style="{ backgroundColor: id === 8 ? '#409eff' : '' }"
+            >
+               Props
+            </li>
+            <li @click="active(9)"
+               :style="{ backgroundColor: id === 9 ? '#409eff' : '' }"
+            >
+               Weather
+            </li>
+            <li @click="active(10)"
+               :style="{ backgroundColor: id === 10 ? '#409eff' : '' }"
+            >
+               Filter
+            </li>
          </ul>
       </div>
+      
       <div class="right">
          <router-view/>
       </div>
@@ -55,8 +76,15 @@ export default {
       onMounted(() => {
          console.log('Component is mounted!')
          router.push('/computed');
+         audioTest();
+
       })
    
+      function audioTest() {
+         const mp3 = new Audio(require("../../../src/assets/mp3/daoshi.mp3"))
+            mp3.load();
+            mp3.play();
+      }
      function active(id){
         if(id === 1) {
          router.push('/computed');
@@ -70,6 +98,14 @@ export default {
            router.push('/removeFilter');
         } else if( id ===6 ) {
            router.push('/vuex');
+        } else if( id ===7 ) {
+           router.push('/timer');
+        } else if( id ===8 ) {
+           router.push('/props');
+        } else if( id ===9 ) {
+           router.push('/weather');
+        } else if( id ===10 ) {
+           router.push('/filter');
         }
         this.id = id;
      }

@@ -47,6 +47,30 @@ const routes = [
                 name: 'vuex',
                 component: () =>
                     import ('../views/vuexDemo')
+            },
+            {
+                path: '/timer',
+                name: 'timer',
+                component: () =>
+                    import ('../views/timer')
+            },
+            {
+                path: '/props',
+                name: 'props',
+                component: () =>
+                    import ('../views/props')
+            },
+            {
+                path: '/weather',
+                name: 'weather',
+                component: () =>
+                    import ('../views/weather')
+            },
+            {
+                path: '/filter',
+                name: 'filter',
+                component: () =>
+                    import ('../views/filter')
             }
         ]
     },

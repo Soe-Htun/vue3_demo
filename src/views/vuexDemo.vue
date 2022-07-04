@@ -6,10 +6,12 @@
   </ul>
   
   <p>Total Notes: {{ totalNotes }}</p>
+
+ 
 </template>
 
 <script>
-import { computed, ref } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import { useStore } from 'vuex'
 export default {
   setup() {
@@ -18,10 +20,18 @@ export default {
     const totalNotes = computed(() => store.getters.totalNotes)
 
     const title = ref("");
+    onMounted(() => {
+         console.log('Component is mounted!')
+          //  const mp3 = new Audio(require("../../src/assets/mp3/daoshi.mp3"))
+          //   mp3.play();
+      })
     function save() {
       // notes.value.push(title.value);
       store.dispatch('saveNote', title.value)
-      title.value = ""
+      title.value = "";
+
+      const mp3 = new Audio(require("../../src/assets/mp3/daoshi.mp3"))
+      mp3.play();
     }
     return {
       store,
@@ -29,7 +39,6 @@ export default {
       totalNotes,
       title,
       save,
-      
     }
   }
 }
